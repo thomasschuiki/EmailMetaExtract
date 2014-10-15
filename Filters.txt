@@ -1,0 +1,39 @@
+$msg_filters = 
+	@(
+		@{ptrn='001A'; type="Message class"},
+		@{ptrn='0037'; type="Subject"},
+		@{ptrn='0040'; type="Received by name"},
+		@{ptrn='0042'; type="Sent repr name"},
+		@{ptrn='0044'; type="Rcvd repr name"},
+		@{ptrn='004D'; type="Org author name"},
+		@{ptrn='0050'; type="Reply rcipnt names"},
+		@{ptrn='005A'; type="Org sender name"},
+		@{ptrn='0064'; type="Sent repr adrtype"},
+		@{ptrn='0065'; type="Sent repr email"},
+		@{ptrn='0070'; type="Topic"},
+		@{ptrn='0075'; type="Rcvd by adrtype"},
+		@{ptrn='0076'; type="Rcvd by email"},
+		@{ptrn='0077'; type="Repr adrtype"},
+		@{ptrn='0078'; type="Repr email"},
+		@{ptrn='007d'; type="Message header"},
+		@{ptrn='0C1A'; type="Sender name"},
+		@{ptrn='0C1E'; type="Sender adr type"},
+		@{ptrn='0C1F'; type="Sender email"},
+		@{ptrn='0E02'; type="Display BCC"},
+		@{ptrn='0E03'; type="Display CC"},
+		@{ptrn='0E04'; type="Display To"},
+		@{ptrn='1000'; type="Message body"},
+		@{ptrn='1046'; type="Sender email"},
+		@{ptrn='3001'; type="Display name"},
+		@{ptrn='3002'; type="Address type"},
+		@{ptrn='3003'; type="Email address"}
+	)
+	
+$attachment_filters = 
+	@(
+		@{ptrn='3701'; type="Attachment data"},
+		@{ptrn='3703'; type="Attach extension"},
+		@{ptrn='3704'; type="Attach filename"},
+		@{ptrn='3707'; type="Attach long filenm"},
+		@{ptrn='370E'; type="Attach mime tag"}
+	)
