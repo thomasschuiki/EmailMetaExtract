@@ -1,8 +1,9 @@
-#msgextract.ps1
-#Parses Metadata of .msg files
-#Version 1
-#James Saunders
-#07/24/2013
+# msgextract.ps1
+# Parses Metadata of .msg files
+# Version 1
+# based on the script by James Saunders
+# http://jls3tech.wordpress.com/2013/09/21/msgextract-ps1-parses-metadata-of-msg-files/
+
 
 
 #date
@@ -357,8 +358,3 @@ Function Process
 
 Main
 #Process
-
-######CL######
-#7/24 V1 created
-#####Future####
-#Loop thru attachments
