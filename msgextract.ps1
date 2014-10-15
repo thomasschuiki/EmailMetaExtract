@@ -320,19 +320,25 @@ Function Process-FromByObject
   $finalArray 
 } 
 Function Main{
+  # write web-report header
   #ac $webReportFile "<html><head><style>msg { color:black; font-size:20px; background: #7abcff;  font-family:Verdana, Helvetica, Arial, sans-serif;  } h1{font-family:Verdana, Helvetica, Arial, sans-serif;} div{border:1px solid #333; border-width:1px 0;} </style><title>Email Metadata Report | $(get-date -f yyyy-MM-dd)</title></head><body><h1>Email Metadata Report | $(get-date -f yyyy-MM-dd)</h1>"
 
+  # loop all files
   $files = Get-ChildItem $inputDir\*.msg
   $files|foreach{
-    Write-host $_
-    #meta_extract $_ 
+    # $_ path of current file    
+    # extract msgs
+    meta_extract $_ 
     Write-host $_.Name.replace(".msg","").replace("FW  ","").replace("Fw  ","") -foregroundcolor black -backgroundcolor yellow
     Write-host "Metadata Extracted!" -foregroundcolor red -backgroundcolor yellow
-    #fileSorter $_
+    # filter for header info
+    fileSorter $_
   }
+  # write web-report footer
   #ac $webReportFile "</body></html>"
-  #ii $outputDir"webreport.html"
-  #ri $tmpDir"\*.*" -recurse
+  ii $outputDir"webreport.html"
+  # cleanup 
+  ri $tmpDir"\*.*" -recurse
 }
 
 Function Process 
@@ -341,6 +347,7 @@ Function Process
   $InputFileName = (Join-Path $outputDir "$timestamp-$filename")
   $text = [System.IO.File]::OpenText($InputFileName).ReadToEnd() 
   $fromObject = Process-ReceivedFrom -text $text 
+  # not used yet
   # $byObject = Process-ReceivedBy -text $text 
    
   $finalArray = Process-FromByObject $fromObject $byObject 
